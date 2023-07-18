@@ -8,6 +8,7 @@ import wikipedia
 # nltk.download('wordnet')
 # nltk.download('punkt')
 
+# Wikipedia page
 text = wikipedia.page('Vegetables').content
 
 lemmatizer = WordNetLemmatizer()
