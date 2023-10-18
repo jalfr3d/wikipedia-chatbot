@@ -8,11 +8,7 @@ import wikipedia
 # nltk.download('wordnet')
 # nltk.download('punkt')
 
-# Wikipedia page
-text = wikipedia.page('Vegetables').content
-
 lemmatizer = WordNetLemmatizer()
-
 
 def lemma_me(sent):
     sentence_tokens = nltk.word_tokenize(sent.lower())
@@ -26,8 +22,9 @@ def lemma_me(sent):
 
     return sentence_lemmas
 
-
-def process(text, question):
+def process(subject, question):
+    # Retrieve Wikipedia content for the specified subject
+    text = wikipedia.page(subject).content
     sentence_tokens = nltk.sent_tokenize(text)
     sentence_tokens.append(question)
 
@@ -41,13 +38,13 @@ def process(text, question):
     if coeff > 0.3:
         return sentence_tokens[index]
 
-
+subject = input("Please enter a subject: ")
 while True:
-    question = input("Hi, what do you want to know?\n")
-    output = process(text, question)
+    question = input(f"What do you want to know about {subject}?\n")
+    output = process(subject, question)
     if output:
         print(output)
-    elif question == 'quit':
+    elif question.lower() == 'quit':
         break
     else:
         print("I don't know.")
