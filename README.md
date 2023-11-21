@@ -36,3 +36,9 @@ python wikipedia_bot.py
 # Bot: What do you want to know about elephants?
 # User: How much do elephants weigh?
 # Bot: Elephants can weigh up to 12,000 pounds.
+```
+
+## License
+
+This project is licensed under the MIT License. You are free to use and modify the code for your own purposes.
+
